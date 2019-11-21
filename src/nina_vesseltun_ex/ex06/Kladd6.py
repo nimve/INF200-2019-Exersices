@@ -1,5 +1,7 @@
-import matplotlib.pyplot as plt
-import numpy as np
+from math import exp
 
-%matplotlib inline
-%config InlineBackend.figure_format = 'retina'
+def sigmoid(z):
+    for idx, z_element in enumerate(z):
+        z[idx] = 1 / (1 + exp(-float(z_element)))
+    return z
+

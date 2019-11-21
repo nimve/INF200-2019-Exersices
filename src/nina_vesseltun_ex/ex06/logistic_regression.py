@@ -164,6 +164,7 @@ __author__ = "Yngve Mardal Moe"
 __email__ = "yngve.m.moe@gmail.com"
 
 
+from math import exp
 import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.exceptions import NotFittedError
@@ -190,8 +191,9 @@ def sigmoid(z):
     sigmoidal_transformed_z : np.ndarray
         Transformed input.
     """
-    # Your code here
-    pass
+    for idx, z_element in enumerate(z):
+        z[idx] = 1 / (1 + exp(-float(z_element)))
+    return z
 
 
 def predict_proba(coef, X):
